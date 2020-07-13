@@ -1,3 +1,4 @@
+require("./config/config.js");
 var express = require("express");
 var app = express();
 var bodyparser = require("body-parser");
@@ -8,7 +9,7 @@ var localStrategy = require("passport-local");
 var nodemailer = require('nodemailer');
 var request = require('request');
 var { mongoose } = require("./db/mongoose.js");
-require("./config/config.js");
+
 
 // const uri = "mongodb+srv://YashRaj:Yash1998@blogapp.shvdu.mongodb.net/ok?retryWrites=true&w=majority";
 
@@ -27,7 +28,7 @@ app.use(flash());
 //seedDB();
 
 app.use(require("express-session")({
-    secret: "jo man hai kar",
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: false
 }))
@@ -46,7 +47,7 @@ app.use(function(req, res, next) {
 app.use(indexRoutes);
 app.use(commentRoutes);
 app.use(campRoutes);
-let port = 3000 | process.env.PORT;
-app.listen(port, function() {
+//let port = 3000 | process.env.PORT;
+app.listen(process.env.PORT, function() {
     console.log("yelpcamp started on", process.env.PORT);
 })
