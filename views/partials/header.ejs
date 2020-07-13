@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>yelpcamp</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/main.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-default" style=" background-color:#E3CCBE; border-color: #E3ccBe; margin-bottom: 0px ;">
+        <div class=" container-fluid ">
+            <div class="navbar-header ">
+                <a class="navbar-brand  " style="color: black;" href="/ "><span class="glyphicon glyphicon-tent"></span>yelpcamp</a>
+            </div>
+            <div class="navbar-header ">
+                <a class="navbar-brand " style="color: black;" href="/campgrounds">Home</a>
+            </div>
+            <div class="collapse navbar-collapse ">
+                <ul class="nav navbar-nav navbar-right ">
+                    <% if(!currentUser){ %>
+                        <li><a class="btn btn-lg btn-block" style="color: black;" href="/login">login</a></li>
+                        <li><a class="btn btn-lg btn-block" style="color: black;" href="/register ">signup</a></li>
+                        <% } else { %>
+                            <li><a href="# " style="color: black;">signed in as <%=currentUser.username %></a> </li>
+                            <li><a href="/logout " style="color: black;">logout</a></li>
+                            <% } %>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container " style="background-color:  #E3CCBE;">
+        <% if(error && error.length > 0){%>
+            <div class="alert alert-danger " role="alert ">
+                <%= error %>
+            </div>
+            <%}%>
+                <% if(success && success.length > 0){%>
+                    <div class="alert alert-success " role="alert ">
+                        <%= success %>
+                    </div>
+                    <%}%>
+    </div>
