@@ -7,7 +7,11 @@ var passport = require("passport");
 var localStrategy = require("passport-local");
 var nodemailer = require('nodemailer');
 var request = require('request');
-mongoose.connect("mongodb://localhost/yelp_camp");
+
+
+const uri = "mongodb+srv://YashRaj:Yash1998@blogapp.shvdu.mongodb.net/yelpcamp?retryWrites=true&w=majority";
+
+mongoose.connect(uri, { useNewUrlParser: true });
 var Campground = require("./models/campground");
 var Comment = require("./models/comment")
 var User = require("./models/user");
