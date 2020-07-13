@@ -1,0 +1,7 @@
+{
+    "development": {
+        "PORT": 3000,
+        "MONGODB_URI": "mongodb://localhost/Yelp_camp",
+        "SECRET": "hey+-$6u=youfatjdjkajfafffddsubhi"
+    }
+}

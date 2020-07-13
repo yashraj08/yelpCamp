@@ -7,11 +7,12 @@ var passport = require("passport");
 var localStrategy = require("passport-local");
 var nodemailer = require('nodemailer');
 var request = require('request');
+var { mongoose } = require("./db/mongoose.js");
+require("./config/config.js");
 
+// const uri = "mongodb+srv://YashRaj:Yash1998@blogapp.shvdu.mongodb.net/ok?retryWrites=true&w=majority";
 
-const uri = "mongodb+srv://YashRaj:Yash1998@blogapp.shvdu.mongodb.net/ok?retryWrites=true&w=majority";
-
-mongoose.connect(uri, { useNewUrlParser: true });
+// mongoose.connect(uri, { useNewUrlParser: true });
 var Campground = require("./models/campground");
 var Comment = require("./models/comment")
 var User = require("./models/user");
@@ -45,6 +46,7 @@ app.use(function(req, res, next) {
 app.use(indexRoutes);
 app.use(commentRoutes);
 app.use(campRoutes);
-app.listen(process.env.PORT, function() {
+let port = 3000 | process.env.PORT;
+app.listen(port, function() {
     console.log("yelpcamp started on", process.env.PORT);
 })
