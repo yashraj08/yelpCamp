@@ -9,7 +9,7 @@ var nodemailer = require('nodemailer');
 var request = require('request');
 
 
-const uri = "mongodb+srv://YashRaj:Yash1998@blogapp.shvdu.mongodb.net/yelpcamp?retryWrites=true&w=majority";
+const uri = "mongodb+srv://YashRaj:Yash1998@blogapp.shvdu.mongodb.net/ok?retryWrites=true&w=majority";
 
 mongoose.connect(uri, { useNewUrlParser: true });
 var Campground = require("./models/campground");
